@@ -135,6 +135,23 @@ def test_syntax_error():
     assert "SyntaxError" in exception_text
 
 
+def test_syntax_error_non_str_message():
+    # Regression test for #4225: a SyntaxError subclass may carry a
+    # non-string `msg` (e.g. xml.etree.ElementTree.ParseError wrapping an
+    # xml.parsers.expat.ExpatError). Rendering must not raise a secondary
+    # TypeError and mask the original error.
+    from xml.etree.ElementTree import ParseError
+    from xml.parsers.expat import ExpatError
+
+    console = Console(width=100, file=io.StringIO())
+    try:
+        raise ParseError(ExpatError("syntax error"))
+    except ParseError:
+        console.print_exception()
+    exception_text = console.file.getvalue()
+    assert "ParseError" in exception_text
+
+
 def test_nested_exception():
     console = Console(width=100, file=io.StringIO())
     value_error_message = "ValueError because of ZeroDivisionError"

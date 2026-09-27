@@ -14,6 +14,7 @@ The following people have contributed to the development of Rich:
 - [Ceyda Cinarel](https://github.com/cceyda)
 - [Jim Crist-Harif](https://github.com/jcrist)
 - [Ed Davis](https://github.com/davised)
+- [EDfwy1](https://github.com/EDfwy1)
 - [Pete Davison](https://github.com/pd93)
 - [James Estevez](https://github.com/jstvz)
 - [Jonathan Eunice](https://github.com/jonathan-3play)
